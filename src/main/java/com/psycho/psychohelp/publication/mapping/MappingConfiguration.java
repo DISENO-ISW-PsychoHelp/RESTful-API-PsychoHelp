@@ -11,5 +11,10 @@ public class MappingConfiguration {
         return new PublicationMapper();
     }
 
+    @Bean
+    public TagMapper tagMapper(){
+        return new TagMapper();
+    }
+
 
 }

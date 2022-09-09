@@ -1,5 +1,6 @@
 package com.psycho.psychohelp.patient.resource;
 
+import com.psycho.psychohelp.patient.domain.model.entity.State;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,8 +39,7 @@ public class CreatePatientResource {
     private String phone;
 
     @NotNull
-    @Size(max = 200)
-    private String date;
+    private Date date;
 
     @NotNull
     @NotBlank
@@ -49,4 +49,7 @@ public class CreatePatientResource {
     @NotNull
     @NotBlank
     private String img;
+
+    @NotNull
+    private State state;
 }

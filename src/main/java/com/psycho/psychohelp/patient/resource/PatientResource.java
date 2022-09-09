@@ -1,8 +1,10 @@
 package com.psycho.psychohelp.patient.resource;
 
+import com.psycho.psychohelp.patient.domain.model.entity.State;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Getter
@@ -14,7 +16,8 @@ public class PatientResource {
     private String email;
     private String password;
     private String phone;
-    private String date;
+    private Date date;
     private String gender;
     private String img;
+    private State state;
 }

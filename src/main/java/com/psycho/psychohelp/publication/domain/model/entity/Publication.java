@@ -51,7 +51,6 @@ public class Publication extends AuditModel {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Psychologist psychologist;
 
-
     public Publication(Long id, String title, String description, String tags, String photoUrl, String content) {
         this.id = id;
         this.title = title;

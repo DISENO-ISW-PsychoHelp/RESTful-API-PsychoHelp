@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -46,7 +47,7 @@ public class Patient extends AuditModel {
     private String phone;
 
     @NotNull
-    private String date;
+    private Date date;
 
     @NotNull
     @NotBlank
@@ -58,8 +59,11 @@ public class Patient extends AuditModel {
     @Size(max = 200)
     private String img;
 
+    @NotNull
+    private State state;
 
-    public Patient(Long id, String firstName, String lastName, String email, String password, String phone, String date, String gender, String img) {
+
+    public Patient(Long id, String firstName, String lastName, String email, String password, String phone, Date date, String gender, String img, State state) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -69,5 +73,6 @@ public class Patient extends AuditModel {
         this.date = date;
         this.gender = gender;
         this.img = img;
+        this.state = state;
     }
 }

@@ -67,7 +67,8 @@ public class PatientServiceImpl implements PatientService {
                                 .withDate(request.getDate())
                                 .withPhone(request.getPhone())
                                 .withGender(request.getGender())
-                                .withImg(request.getImg())))
+                                .withImg(request.getImg())
+                                .withState(request.getState())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, patientId));
     }
 

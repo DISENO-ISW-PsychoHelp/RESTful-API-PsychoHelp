@@ -37,16 +37,16 @@ public class PatientController {
     }
 
     @Operation(summary = "Get Patients by Id", description = "Get Patient by Id")
-    @GetMapping("{patientId}")
-    public PatientResource getById(@PathVariable Long patientId) {
-        return mapper.toResource(patientService.getById(patientId));
+    @GetMapping("{id}")
+    public PatientResource getById(@PathVariable Long id) {
+        return mapper.toResource(patientService.getById(id));
     }
 
 
     @Operation(summary = "Get Patients by Email", description = "Get Patient information by email")
-    @GetMapping("/email/{patientEmail}")
-    public PatientResource getPatientByEmail(@PathVariable String patientEmail) {
-        return mapper.toResource(patientService.getByEmail(patientEmail));
+    @GetMapping("/email/{email}")
+    public PatientResource getPatientByEmail(@PathVariable String email) {
+        return mapper.toResource(patientService.getByEmail(email));
     }
 
     //create patient
