@@ -4,6 +4,7 @@ import com.psycho.psychohelp.appointment.domain.model.entity.Appointment;
 import com.psycho.psychohelp.appointment.domain.model.entity.Status;
 import com.psycho.psychohelp.appointment.domain.persistance.AppointmentRepository;
 import com.psycho.psychohelp.patient.domain.model.entity.Patient;
+import com.psycho.psychohelp.patient.domain.model.entity.State;
 import com.psycho.psychohelp.patient.domain.persistence.PatientRepository;
 import com.psycho.psychohelp.patient.service.PatientServiceImpl;
 import com.psycho.psychohelp.psychologist.domain.model.entity.Psychologist;
@@ -61,7 +62,7 @@ public class AppointmentServiceImplTest {
     public void setUp() {
         initMocks(this);
         Date date = new Date(1980, 12, 3);
-        patient = new Patient(1L, "jose", "ivan", "strtg@gmail.com", "qweerwrrtyy", "987654321", "qweerwr", "qweerwr", "qweerwr");
+        patient = new Patient(1L, "jose", "ivan", "strtg@gmail.com", "qweerwrrtyy", "987654321", date, "qweerwr", "qweerwr", State.SINGLE);
         psychologist = new Psychologist(2L, "name", "1234354", date, "email@gmail.com", "password123", "9823892", "specialization", "formation", "about", "male", "sessionType", "image", "cmp", true, false);
         request = new Appointment(3L, "https://meet.google.com/zxw-srkm-ewz", "motive", "Personal History", "Test Realized", "Treatment", "ScheduleDate", Status.APPROVED, patient, psychologist);
     }

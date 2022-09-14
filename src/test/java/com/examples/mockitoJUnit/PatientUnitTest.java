@@ -1,6 +1,7 @@
 package com.examples.mockitoJUnit;
 
 import com.psycho.psychohelp.patient.domain.model.entity.Patient;
+import com.psycho.psychohelp.patient.domain.model.entity.State;
 import com.psycho.psychohelp.patient.domain.persistence.PatientRepository;
 import com.psycho.psychohelp.patient.service.PatientServiceImpl;
 import org.junit.Before;
@@ -12,10 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.xml.validation.Validator;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -38,7 +36,8 @@ public class PatientUnitTest {
     @Before
     public void setUp() {
         initMocks(this);
-        request = new Patient(1L, "jose", "ivan", "strtg@gmail.com", "qweerwrrtyy", "987654321", "qweerwr", "qweerwr", "qweerwr");
+        Date date = new Date(1980, 12, 3);
+        request = new Patient(1L, "jose", "ivan", "strtg@gmail.com", "qweerwrrtyy", "987654321", date, "qweerwr", "qweerwr", State.SINGLE);
     }
 
     ;

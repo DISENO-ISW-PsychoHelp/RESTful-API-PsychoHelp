@@ -1,6 +1,8 @@
 package com.examples.cucumber;
 
+import com.psycho.psychohelp.appointment.domain.model.entity.Status;
 import com.psycho.psychohelp.patient.domain.model.entity.Patient;
+import com.psycho.psychohelp.patient.domain.model.entity.State;
 import com.psycho.psychohelp.psychologist.domain.model.entity.Psychologist;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -42,11 +44,12 @@ public class RegisterPatientSteps {
         assertTrue(!getEndpoint.isEmpty());
     }
 
-    @And("I enter my own information like firstname {string}, lastname {string}, email {string}, password {string}, phone {string}, date {string}, gender {string} and img {string}")
-    public void iEnterMyOwnInformationLikeFirstnameFirstnameLastnameLastnameEmailEmailPasswordPasswordPhonePhoneDateDateGenderGenderAndImgImg(String firstname, String lastname, String email , String password, String phone, String date, String gender, String img) {
+    @And("I enter my own information like firstname {string}, lastname {string}, email {string}, password {string}, phone {string}, gender {string} and img {string}")
+    public void iEnterMyOwnInformationLikeFirstnameFirstnameLastnameLastnameEmailEmailPasswordPasswordPhonePhoneDateDateGenderGenderAndImgImg(String firstname, String lastname, String email , String password, String phone, String gender, String img) {
         String patientUrl=url + "/patients";
-
-        Patient newPatient = new Patient(patientId, firstname, lastname, email, password, phone, date, gender, img);
+        Date date = new Date();
+        State state = State.SINGLE;
+        Patient newPatient = new Patient(patientId, firstname, lastname, email, password, phone, date, gender, img, state);
         patient=restTemplate.postForObject(patientUrl,newPatient,Patient.class);
         log.info(patient.getId());
         assertNotNull(patient);
