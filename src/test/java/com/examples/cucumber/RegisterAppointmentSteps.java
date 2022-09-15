@@ -36,34 +36,6 @@ public class RegisterAppointmentSteps {
         return generatedLong;
     }
 
-//    @Given("I want to register an appointment")
-//    public void iWantToRegisterAnAppointment() {
-//        String appointmentUrl = url + "/appointment/" + 10L;
-//        String getEndpoint = restTemplate.getForObject(appointmentUrl, String.class);
-//        log.info(getEndpoint);
-//        assertTrue(!getEndpoint.isEmpty());
-//    }
-//    @And("The psychologist with {long} is active")
-//    public void thePsychologistWithIdIsActive(Long id) {
-//        String psychologistUrl = url + "/psychologists/" + id;
-//        Psychologist psychologist = restTemplate.getForObject(psychologistUrl, Psychologist.class);
-//        if(psychologist.getActive()) {
-//            log.info("The psychologist is active");
-//        } else {
-//            log.info("The psychologist is not active");
-//        }
-//    }
-//    @Then("I should be able to register an appointment")
-//    public void iShouldBeAbleToRegisterAnAppointment() {
-//        String psychologistUrl = url + "/psychologists/" + 1L;
-//        try{
-//            Psychologist getPsychologistById = restTemplate.getForObject(psychologistUrl, Psychologist.class, 1L);
-//            log.info(getPsychologistById);
-//        } catch (RestClientException e) {
-//            log.info("The psychologist is not active");
-//        }
-//    }
-
     @Given("I want to schedule")
     public void i_want_to_schedule() {
         String appointmentUrl = url + "/appointment";
