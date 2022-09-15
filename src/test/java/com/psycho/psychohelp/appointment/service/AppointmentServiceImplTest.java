@@ -63,7 +63,7 @@ public class AppointmentServiceImplTest {
         initMocks(this);
         Date date = new Date(1980, 12, 3);
         patient = new Patient(1L, "jose", "ivan", "strtg@gmail.com", "qweerwrrtyy", "987654321", date, "qweerwr", "qweerwr", State.SINGLE);
-        psychologist = new Psychologist(2L, "name", "1234354", date, "email@gmail.com", "password123", "9823892", "specialization", "formation", "about", "male", "sessionType", "image", "cmp", true, false);
+        psychologist = new Psychologist(2L, "name", "1234354", date, "email@gmail.com", "password123", "9823892", "specialization", "formation", "about", "male", "sessionType", "image", "cmp", true, false, 0);
         request = new Appointment(3L, "https://meet.google.com/zxw-srkm-ewz", "motive", "Personal History", "Test Realized", "Treatment", "ScheduleDate", Status.APPROVED, patient, psychologist);
     }
 

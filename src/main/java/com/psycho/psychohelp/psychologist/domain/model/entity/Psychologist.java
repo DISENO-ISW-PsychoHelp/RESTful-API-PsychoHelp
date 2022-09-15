@@ -95,11 +95,14 @@ public class Psychologist extends AuditModel {
     @NotNull
     private Boolean fresh;
 
+    @NotNull
+    private Integer penaltiesCount;
+
     @Nullable
     @OneToMany(mappedBy = "psychologist")
     private List<PsychologistSchedule> psychologistSchedules;
 
-    public Psychologist(Long id, String name, String dni, Date birthdayDate, String email, String password, String phone, String specialization, String formation, String about, String genre, String sessionType, String image, String cmp, Boolean active, Boolean fresh) {
+    public Psychologist(Long id, String name, String dni, Date birthdayDate, String email, String password, String phone, String specialization, String formation, String about, String genre, String sessionType, String image, String cmp, Boolean active, Boolean fresh, Integer penaltiesCount) {
         this.id = id;
         this.name = name;
         this.dni = dni;
@@ -116,5 +119,6 @@ public class Psychologist extends AuditModel {
         this.cmp = cmp;
         this.active = active;
         this.fresh = fresh;
+        this.penaltiesCount = penaltiesCount;
     }
 }

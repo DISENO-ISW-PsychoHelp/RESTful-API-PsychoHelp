@@ -43,7 +43,7 @@ public class PsychoUnitTest {
     @Test
     public void createPsychoTest() {
         Date birthdayDate = new Date();
-        request = new Psychologist(1L, "Juan", "12345678", birthdayDate, "juanadmin@gmail.com", "asdqwefsdv", "987123456", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdas", true, true );
+        request = new Psychologist(1L, "Juan", "12345678", birthdayDate, "juanadmin@gmail.com", "asdqwefsdv", "987123456", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdasd", "saasdas", true, true, 0);
         Mockito.when(psychologistRepository.save(Mockito.any())).thenReturn(new Psychologist());
         psychologistService.create(request);
     }

@@ -26,7 +26,7 @@ public class PutAppointmentSteps {
     private RestTemplate restTemplate = new RestTemplate();
     private String url="http://localhost:8081/api/v1";
     private String message="";
-    private Long masterId=10L;
+    private Long masterId=1L;
 
     Appointment appointment;
     Long appointmentId = randomLong();

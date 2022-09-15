@@ -49,7 +49,7 @@ public class RegisterPsychoSteps {
         String psychologistUrl=url + "/psychologists";
         Date birthdayDate = new Date();
 
-        Psychologist newPsychologist = new Psychologist(psychologistId, name,dni, birthdayDate, email, password, phone,specialization,formation, about,genre, sessionType,"img.jpg",code, true,true);
+        Psychologist newPsychologist = new Psychologist(psychologistId, name,dni, birthdayDate, email, password, phone,specialization,formation, about,genre, sessionType,"img.jpg",code, true,true, 0);
         psychologist=restTemplate.postForObject(psychologistUrl,newPsychologist,Psychologist.class);
         log.info(psychologist.getId());
         assertNotNull(psychologist);

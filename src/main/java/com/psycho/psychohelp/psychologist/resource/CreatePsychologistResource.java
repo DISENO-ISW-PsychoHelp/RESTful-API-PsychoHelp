@@ -81,4 +81,7 @@ public class CreatePsychologistResource {
 
     @NotNull
     private Boolean fresh;
+
+    @NotNull
+    private Integer penaltiesCount;
 }

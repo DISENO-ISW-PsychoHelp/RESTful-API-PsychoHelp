@@ -82,4 +82,8 @@ public class UpdatePsychologistResource {
 
     @NotNull
     private Boolean fresh;
+
+    @NotNull
+    private Integer penaltiesCount;
+
 }

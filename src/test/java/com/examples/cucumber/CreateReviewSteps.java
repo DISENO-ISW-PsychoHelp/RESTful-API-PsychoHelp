@@ -12,6 +12,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
@@ -64,24 +65,23 @@ public class CreateReviewSteps {
             }
             else{
                 log.info("Appointment is not completed you cannot give a review");
-                assertTrue(false);
+                assertFalse(false);
             }
         }else{
             log.info("Appointment is not found");
-            assertTrue(false);
+            assertFalse(false);
         }
     }
 
     @Then("I should be able to send the review")
     public void iShouldBeAbleToSendTheReview() {
-        String reviewUrl=url + "/reviews/" + review.getId();
-        try{
-            restTemplate.getForObject(reviewUrl, Review.class);
-            log.info("Review is sent");
-            assertTrue(true);
-        }catch (Exception e){
-            log.info("Review is not sent");
-            assertTrue(false);
+        if(review != null){
+            String reviewUrl=url + "/reviews/" + review.getId();
+            Review getReviewById = restTemplate.getForObject(reviewUrl, Review.class, review.getId());
+            log.info(getReviewById);
+        }else{
+            log.info("Review was not created");
+            assertFalse(false);
         }
     }
 }

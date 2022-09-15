@@ -24,5 +24,6 @@ public class PsychologistResource {
     private String cmp;
     private Boolean active;
     private Boolean fresh;
+    private Integer penaltiesCount;
 
 }

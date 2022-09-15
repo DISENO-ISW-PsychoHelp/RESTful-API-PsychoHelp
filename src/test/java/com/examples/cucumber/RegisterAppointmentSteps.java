@@ -76,34 +76,39 @@ public class RegisterAppointmentSteps {
     public void i_schedule_an_appointment_with_url_motive_history_test_treatment_and_date(String meetUrl, String motive, String history, String test, String treatment, String date) {
         String appointmentUrl = url + "/appointment/patient/" + 1L + "/psychologist/" + 1L;
         Psychologist psychologist = restTemplate.getForObject(url + "/psychologists/" + 1L, Psychologist.class);
-        if(psychologist.getActive()) {
-            log.info("The psychologist is active");
-        } else {
-            log.info("The psychologist is not active");
-        }
         Patient patient = restTemplate.getForObject(url + "/patients/" + 1L, Patient.class);
         Status status_1 = Status.APPROVED;
 
-        Appointment newAppointment = new Appointment(appointmentId, meetUrl, motive, history, test, treatment, date, status_1, patient, psychologist);
-        appointment = restTemplate.postForObject(appointmentUrl, newAppointment, Appointment.class);
-        log.info(appointment.getId());
-        assertNotNull(appointment);
+        // Verify if the psychologist is active
+        if(psychologist.getActive()) {
+            log.info("The psychologist is active");
+            // Verify if the psychologist doesn't have more than 5 penalties
+            if(psychologist.getPenaltiesCount()<5){
+                // Then we can schedule the appointment successfully
+                Appointment newAppointment = new Appointment(appointmentId, meetUrl, motive, history, test, treatment, date, status_1, patient, psychologist);
+                appointment = restTemplate.postForObject(appointmentUrl, newAppointment, Appointment.class);
+                log.info(appointment.getId());
+                assertNotNull(appointment);
+            }
+            else {
+                log.info("The psychologist can't schedule an appointment because he has more than 5 penalties");
+            }
+        } else {
+            log.info("The psychologist is not active");
+        }
     }
 
     @Then("I should be able to see my newly appointment")
     public void i_should_be_able_to_see_my_newly_appointment() {
-        String appointmentUrl = url + "/appointment/" + 3L;
-        try {
+        if(appointment != null) {
+            String appointmentUrl = url + "/appointment/" + appointment.getId();
             Appointment getAppointmentById = restTemplate.getForObject(appointmentUrl, Appointment.class, appointment.getId());
             log.info(getAppointmentById);
-        } catch (RestClientException e) {
-            message = "";
         }
-        assertEquals("", message);
+        else {
+            log.info("The appointment couldn't be scheduled");
+        }
+
     }
-
-
-
-
 
 }

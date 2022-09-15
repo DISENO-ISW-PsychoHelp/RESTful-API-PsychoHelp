@@ -44,7 +44,7 @@ public class PsychologistServiceImplTest {
     @Before
     public void setUp() {
         Date date = new Date(1980, 12, 3);
-        request = new Psychologist(2L, "name", "1234354", date, "email@gmail.com", "password123", "9823892", "specialization", "formation", "about", "male", "sessionType", "image", "cmp", true, false);
+        request = new Psychologist(2L, "name", "1234354", date, "email@gmail.com", "password123", "9823892", "specialization", "formation", "about", "male", "sessionType", "image", "cmp", true, false, 0);
     }
 
     @Test
