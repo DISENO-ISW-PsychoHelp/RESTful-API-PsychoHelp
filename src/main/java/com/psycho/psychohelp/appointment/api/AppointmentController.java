@@ -83,10 +83,9 @@ public class AppointmentController {
     }
 
     @Operation(summary = "Create appointment", description = "Create appointment")
-    @PostMapping("/patient/{patientId}/psychologist/{psychologistId}")
-    public AppointmentResource createAppointment(@PathVariable(name = "patientId") Long patientId,
-                                                 @PathVariable(name = "psychologistId") Long psychologistId, @Valid @RequestBody CreateAppointmentResource request) {
-        return mapper.toResource(appointmentService.create(mapper.toModel(request), psychologistId, patientId));
+    @PostMapping()
+    public AppointmentResource createAppointment(@Valid @RequestBody CreateAppointmentResource request) {
+        return mapper.toResource(appointmentService.create(mapper.toModel(request)));
     }
 
     @Operation(summary = "Update appointment", description = "Update appointment by Id ")

@@ -11,7 +11,7 @@ import java.util.List;
 public interface AppointmentService {
     List<Appointment> getAll();
     Appointment getById(Long appointmentId);
-    Appointment create(Appointment request, Long psychologistId, Long patientId);
+    Appointment create(Appointment request);
     Appointment update(Long appointmentId, Appointment request);
     Appointment culminateAppointment(Long appointmentId);
     List<Appointment> getByPsychologistId(Long psychologistId);

@@ -36,6 +36,7 @@ public class AppointmentMapper implements Serializable {
     }
 
     public Appointment toModel(CreateAppointmentResource resource) {
+        mapper.getConfiguration().setAmbiguityIgnored(true);
         return mapper.map(resource, Appointment.class);
     }
 

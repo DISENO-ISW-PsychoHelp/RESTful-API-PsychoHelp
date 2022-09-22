@@ -40,4 +40,8 @@ public class CreateAppointmentResource {
     private String ScheduleDate;
     @NotNull
     private Status status;
+    @NotNull
+    private Long psychologistId;
+    @NotNull
+    private Long patientId;
 }

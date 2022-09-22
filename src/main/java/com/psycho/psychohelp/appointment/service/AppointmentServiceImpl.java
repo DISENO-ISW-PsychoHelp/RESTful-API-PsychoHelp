@@ -54,13 +54,16 @@ public class AppointmentServiceImpl implements AppointmentService {
     //create an appointment with psychologist id and patient id
 
     @Override
-    public Appointment create(Appointment request, Long psychologistId, Long patientId) {
-        Patient patient = patientRepository.findById(patientId).orElseThrow(() -> new ResourceNotFoundException("Patient not found with Id " + patientId));
-        Psychologist psychologist = psychologistRepository.findById(psychologistId).orElseThrow(() -> new ResourceNotFoundException("Psychologist not found with Id " + psychologistId));
+    public Appointment create(Appointment request) {
+        //Patient patient = patientRepository.findById(patientId).orElseThrow(() -> new ResourceNotFoundException("Patient not found with Id " + patientId));
+        //Psychologist psychologist = psychologistRepository.findById(psychologistId).orElseThrow(() -> new ResourceNotFoundException("Psychologist not found with Id " + psychologistId));
 //        Set<ConstraintViolation<Appointment>> violations = validator.validate(request);
 //        if(!violations.isEmpty())
 //            throw new ResourceValidationException(ENTITY, violations);
+        Patient patient = patientRepository.findById(request.getPatient().getId()).orElseThrow(() -> new ResourceNotFoundException("Patient not found with Id " + request.getPatient().getId()));
+        Psychologist psychologist = psychologistRepository.findById(request.getPsychologist().getId()).orElseThrow(() -> new ResourceNotFoundException("Psychologist not found with Id " + request.getPsychologist().getId()));
         request.setPatient(patient);
+        //request.setPatient(patient);
         if(psychologist.getActive()){
             request.setPsychologist(psychologist);
         } else {
