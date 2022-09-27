@@ -2,7 +2,9 @@ package com.psycho.psychohelp.appointment.resource;
 
 import com.psycho.psychohelp.appointment.domain.model.entity.Status;
 import com.psycho.psychohelp.patient.domain.model.entity.Patient;
+import com.psycho.psychohelp.patient.resource.PatientResource;
 import com.psycho.psychohelp.psychologist.domain.model.entity.Psychologist;
+import com.psycho.psychohelp.psychologist.resource.PsychologistResource;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +24,6 @@ public class AppointmentResource {
     private String Treatment;
     private String ScheduleDate;
     private Status status;
-    private Long psychologistId;
-    private Long patientId;
+    private PsychologistResource psychologist;
+    private PatientResource patient;
 }
