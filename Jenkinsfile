@@ -31,5 +31,13 @@ pipeline {
                 }
             }
         }
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'MAVEN_3_8_6') {
+                    bat 'mvn deploy'
+                }
+            }
+        }
     }
 }
